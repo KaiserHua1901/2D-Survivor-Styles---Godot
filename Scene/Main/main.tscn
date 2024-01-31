@@ -23,3 +23,18 @@ collision_layer = 0
 [node name="BasicEnemy" parent="." instance=ExtResource("4_s3ukd")]
 collision_layer = 0
 speed = 100
+
+[node name="BasicEnemy2" parent="." instance=ExtResource("4_s3ukd")]
+position = Vector2(586, 259)
+collision_layer = 0
+speed = 100
+
+[node name="BasicEnemy3" parent="." instance=ExtResource("4_s3ukd")]
+position = Vector2(353, -10)
+collision_layer = 0
+speed = 100
+
+[node name="BasicEnemy4" parent="." instance=ExtResource("4_s3ukd")]
+position = Vector2(184, 277)
+collision_layer = 0
+speed = 100

@@ -7,7 +7,7 @@ const MAX_RANGE = 200
 func _ready():
 	$Timer.timeout.connect(On_Timer_timeout)
 	#when timer ran out run On_timer_timeout func
-
+ 
 func On_Timer_timeout():
 	var player = get_tree().get_first_node_in_group('player') as Node2D
 	if player == null:
@@ -32,3 +32,8 @@ func On_Timer_timeout():
 	player.get_parent().add_child(sword_instance)
 	sword_instance.global_position = enemies[0].global_position
 	# this will spawn the sword as the first enemy after sorted
+	sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 2
+	
+	
+	var enemy_position = enemies[0].global_position - sword_instance.global_position
+	sword_instance.rotation = enemy_position.angle()
