@@ -55,7 +55,7 @@ tracks/0/path = NodePath("Sprite2D:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.340423, 0.5, 0.6),
+"times": PackedFloat32Array(0.0851994, 0.225622, 0.493918, 0.593918),
 "transitions": PackedFloat32Array(0.812253, 0.466517, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(2.5, 2.5), Vector2(1, 1), Vector2(0, 0)]
@@ -67,7 +67,7 @@ tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5),
+"times": PackedFloat32Array(0, 0.0851994, 0.493918),
 "transitions": PackedFloat32Array(2.37841, 0.435277, 1),
 "update": 0,
 "values": [0.0, -1.0472, 3.49066]
@@ -79,7 +79,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.493918),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -93,7 +93,7 @@ tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.4),
+"times": PackedFloat32Array(0, 0.135199, 0.393918),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
