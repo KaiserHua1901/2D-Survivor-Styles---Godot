@@ -1,11 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://6gowwokphysw"]
+[gd_scene load_steps=7 format=3 uid="uid://6gowwokphysw"]
 
 [ext_resource type="TileSet" uid="uid://b6thdm1lv43tf" path="res://Resources/enviroment.tres" id="1_egtaa"]
 [ext_resource type="PackedScene" uid="uid://beqf5sqspdgoy" path="res://Scene/Player/player.tscn" id="1_gf6wh"]
+[ext_resource type="Script" path="res://Scene/Main/main.gd" id="1_kkekf"]
 [ext_resource type="PackedScene" uid="uid://c4q3hsedb1131" path="res://Scene/Camera/camera_2d.tscn" id="1_m5qts"]
 [ext_resource type="PackedScene" uid="uid://bo1dkf4nq8a7i" path="res://Scene/Enemy/Basic_Enemy.tscn" id="4_s3ukd"]
 
+[sub_resource type="Curve2D" id="Curve2D_bm6bk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -24, -16, 0, 0, 0, 0, 656, -24, 0, 0, 0, 0, 656, 392, 0, 0, 0, 0, -32, 392, 0, 0, 0, 0, -24, -16)
+}
+point_count = 5
+
 [node name="Main" type="Node"]
+script = ExtResource("1_kkekf")
+mob_scene = ExtResource("4_s3ukd")
 
 [node name="Camera2D" parent="." instance=ExtResource("1_m5qts")]
 position = Vector2(353, 170)
@@ -20,21 +29,15 @@ layer_0/tile_data = PackedInt32Array(1769519, 0, 4, 1703983, 0, 4, 1638447, 0, 4
 position = Vector2(358, 174)
 collision_layer = 0
 
-[node name="BasicEnemy" parent="." instance=ExtResource("4_s3ukd")]
-collision_layer = 0
-speed = 100
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_bm6bk")
 
-[node name="BasicEnemy2" parent="." instance=ExtResource("4_s3ukd")]
-position = Vector2(586, 259)
-collision_layer = 0
-speed = 100
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(-24, -16)
+rotation = -0.0117642
 
-[node name="BasicEnemy3" parent="." instance=ExtResource("4_s3ukd")]
-position = Vector2(353, -10)
-collision_layer = 0
-speed = 100
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
-[node name="BasicEnemy4" parent="." instance=ExtResource("4_s3ukd")]
-position = Vector2(184, 277)
-collision_layer = 0
-speed = 100
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
